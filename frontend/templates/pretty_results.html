@@ -1,0 +1,64 @@
+{% extends "bootstrap/base.html" %}
+
+{% block doc -%}
+<!DOCTYPE html>
+<html{% block html_attribs %}{% endblock html_attribs %}>
+{%- block html %}
+  <head>
+    {%- block head %}
+    <title>{% block title %}{{title|default}}{% endblock title %}</title>
+
+    {%- block metas %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {%- endblock metas %}
+	{% block styles %}
+	{{super()}}
+	<link rel="stylesheet"
+		  href="{{url_for('.static', filename='css/results_style.css')}}">
+	{% endblock %}
+    
+    {%- endblock head %}
+  </head>
+  <body{% block body_attribs %}{% endblock body_attribs %}>
+    {% block body -%}
+    
+	{% block content -%}
+	<div class="container">
+		<div class="row" style="position: relative; display: block;">
+			<div class="col">
+				<div class="rotating-text">
+					<p>The Number of Shrimps in the Picture is: </p>
+					<p>
+						<span class="word alizarin">{{ data }}</span>
+						<span class="word wisteria">{{ data }}</span>
+						<span class="word peter-river">{{ data }}</span>
+						<span class="word emerald">{{ data }}</span>
+						<span class="word sun-flower">{{ data }}</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="max-height: 30%; position: relative; display: block">
+			<div class="col">
+				<img src="C:\\Users\\IEUser\\Desktop\\front\\frontend\\temp\\output.png" class="img-fluid" alt="Responsive image" style="max-height: 30%">
+				
+			</div>
+		</div>
+		<div class="row" style="position: relative; display: block">
+			<div class="col">
+				<button class="btn btn-primary btn-lg center-block" onClick="location.href='/'">One More!</button>
+			</div>
+		</div>
+	</div>
+	
+    {%- endblock content %}
+
+    {% block scripts %}
+	{{super()}}
+	<script src="{{url_for('.static', filename='js/results_script.js')}}"></script>
+	{% endblock %}
+    {%- endblock body %}
+  </body>
+{%- endblock html %}
+</html>
+{% endblock doc -%}
